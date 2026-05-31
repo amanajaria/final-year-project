@@ -1,0 +1,55 @@
+# ── Secrets (never commit) ───────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+backend/.env
+web-portal/.env
+mobile-app/.env
+
+# ── Python / FastAPI ───────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/.venv/
+backend/venv/
+.venv/
+venv/
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# ── Node / Vite / React ────────────────────────────────────────────────────────
+node_modules/
+web-portal/node_modules/
+mobile-app/node_modules/
+mobile-app/.expo/
+web-portal/dist/
+mobile-app/dist/
+*.log
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ── IDE / OS ───────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Cursor / local tooling ─────────────────────────────────────────────────────
+.cursor/
+
+# ── Misc ───────────────────────────────────────────────────────────────────────
+*.bak
+*.tmp

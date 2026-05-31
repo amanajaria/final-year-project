@@ -1,0 +1,44 @@
+{
+  "folders": [
+    {
+      "name": "Backend (FastAPI)",
+      "path": "backend"
+    },
+    {
+      "name": "Web Portal (React)",
+      "path": "web-portal"
+    },
+    {
+      "name": "Mobile App (Expo)",
+      "path": "mobile-app"
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "D:\\FINAL-YEAR-PROJECT\\backend\\.venv\\Scripts\\python.exe",
+    "python.terminal.activateEnvironment": true,
+    "python.useEnvironmentsExtension": false,
+    "python.analysis.extraPaths": [
+      "D:\\FINAL-YEAR-PROJECT\\backend"
+    ],
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.venv": false,
+      "**/node_modules": true
+    },
+    "search.exclude": {
+      "**/.venv": true,
+      "**/node_modules": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.pylance",
+      "ms-python.black-formatter",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "dsznajder.es7-react-js-snippets"
+    ]
+  }
+}

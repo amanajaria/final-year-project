@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Root Design Tokens ─────────────────────────────────────────────────── */
+:root {
+  --bg-primary:   #0f0f1a;
+  --bg-secondary: #16162b;
+  --bg-card:      #1e1e38;
+  --bg-glass:     rgba(255, 255, 255, 0.05);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --accent:       #6270f1;
+  --accent-soft:  rgba(98, 112, 241, 0.15);
+  --text-primary: #f0f4ff;
+  --text-muted:   #8b92b8;
+  --success:      #22c55e;
+  --danger:       #ef4444;
+  --warning:      #f59e0b;
+}
+
+/* ── Base Resets ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar Styling ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+/* ── Glass Card Utility ──────────────────────────────────────────────────── */
+.glass {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ── Gradient Text ───────────────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #6270f1, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Button Base ─────────────────────────────────────────────────────────── */
+.btn {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0f0f1a];
+}
+.btn-primary {
+  @apply btn bg-brand-600 hover:bg-brand-500 text-white shadow-lg shadow-brand-600/30 focus:ring-brand-500;
+}
+.btn-ghost {
+  @apply btn bg-transparent hover:bg-white/5 text-[var(--text-muted)] hover:text-white border border-white/10;
+}
+.btn-danger {
+  @apply btn bg-red-600/20 hover:bg-red-600/30 text-red-400 border border-red-600/30;
+}
+
+/* ── Input Base ──────────────────────────────────────────────────────────── */
+.input {
+  @apply w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-[var(--text-muted)]
+         focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors duration-200 text-sm;
+}
+.input option {
+  color: #0f0f1a;
+  background-color: #ffffff;
+}
+
+/* ── Table ───────────────────────────────────────────────────────────────── */
+.table-container {
+  @apply overflow-x-auto rounded-2xl border border-white/10;
+}
+table {
+  @apply w-full text-sm border-collapse;
+}
+thead th {
+  @apply px-5 py-4 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] bg-white/[0.03];
+}
+tbody tr {
+  @apply border-t border-[var(--border-glass)];
+}
+tbody td {
+  @apply px-5 py-3.5 text-[var(--text-primary)];
+}
+
+/* ── Badge ───────────────────────────────────────────────────────────────── */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+.badge-green  { @apply badge bg-green-500/15 text-green-400 border border-green-500/20; }
+.badge-red    { @apply badge bg-red-500/15  text-red-400   border border-red-500/20; }
+.badge-yellow { @apply badge bg-yellow-500/15 text-yellow-400 border border-yellow-500/20; }
+.badge-blue   { @apply badge bg-blue-500/15  text-blue-400   border border-blue-500/20; }
+
+
+/* ── Sidebar transitions ─────────────────────────────────────────────────── */
+.sidebar-link {
+  @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-[var(--text-muted)]
+         hover:bg-white/5 hover:text-white transition-all duration-200 cursor-pointer;
+}
+.sidebar-link.active {
+  @apply bg-brand-600/20 text-white border border-brand-500/30;
+}
+
+/* ── Page fade animation ─────────────────────────────────────────────────── */
+.page-enter {
+  animation: fadeIn 0.35s ease-out both, slideUp 0.35s ease-out both;
+}
+
+/* ── Elegant Light Theme Tokens & Mapping (for Admin & Teachers) ─────────── */
+.theme-light {
+  --bg-primary:   #f5f7fb;       /* Soft cool light grey/blue */
+  --bg-secondary: #ffffff;       /* Pure white for panels & sidebar */
+  --bg-card:      #ffffff;       /* Pure white for cards */
+  --bg-glass:     rgba(255, 255, 255, 0.7); /* Frosted glass white */
+  --border-glass: rgba(0, 0, 0, 0.08);     /* Very soft border */
+  --accent:       #4f52e5;       /* Dynamic deep brand indigo */
+  --accent-soft:  rgba(79, 82, 229, 0.08);
+  --text-primary: #1e1e2f;       /* Deep slate for readability */
+  --text-muted:   #64748b;       /* Cool slate grey for subtitles */
+}
+
+/* Dynamic Tailwind overrides for Premium Light Theme mapping */
+.theme-light .text-white {
+  color: var(--text-primary) !important;
+}
+.theme-light .bg-\[\#16162b\] {
+  background-color: var(--bg-secondary) !important;
+}
+.theme-light .bg-\[\#1e1e38\] {
+  background-color: var(--bg-card) !important;
+}
+.theme-light .bg-white\/5 {
+  background-color: var(--bg-glass) !important;
+}
+.theme-light .bg-white\/\[0\.02\] {
+  background-color: var(--bg-glass) !important;
+}
+.theme-light .border-white\/10 {
+  border-color: var(--border-glass) !important;
+}
+.theme-light .border-white\/8 {
+  border-color: var(--border-glass) !important;
+}
+.theme-light .border-white\/5 {
+  border-color: var(--border-glass) !important;
+}
+.theme-light .hover\:bg-white\/5:hover {
+  background-color: var(--accent-soft) !important;
+}
+.theme-light .hover\:bg-white\/10:hover {
+  background-color: var(--accent-soft) !important;
+}
+.theme-light .hover\:border-brand-500\/25:hover {
+  border-color: var(--accent) !important;
+}
+.theme-light .table-container {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-glass) !important;
+}
+.theme-light thead th {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+.theme-light .input {
+  background-color: #ffffff !important;
+  color: var(--text-primary) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+.theme-light .input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px var(--accent-soft) !important;
+}
+.theme-light ::-webkit-scrollbar-track {
+  background: var(--bg-primary) !important;
+}
+.theme-light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Premium Sidebar Hover & Active States in Light Theme */
+.theme-light .sidebar-link:hover {
+  color: var(--accent) !important;
+  background-color: var(--accent-soft) !important;
+}
+.theme-light .sidebar-link.active {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  border-color: var(--accent) !important;
+}
+
