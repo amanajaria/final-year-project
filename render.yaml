@@ -2,10 +2,10 @@ services:
   - type: web
     name: college-erp-api
     runtime: python
-    runtimeVersion: 3.11
+    runtimeVersion: 3.11.9
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port 8000
+    buildCommand: pip3.11 install -r requirements.txt
+    startCommand: cd backend && python3.11 -m uvicorn main:app --host 0.0.0.0 --port 8000
     envVars:
       - key: DATABASE_URL
         sync: false
